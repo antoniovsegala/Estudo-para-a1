@@ -1,0 +1,110 @@
+Programação Concorrente e Threads
+• • Programas concorrentes executam múltiplas tarefas simultaneamente.
+• • Threads compartilham recursos do mesmo processo.
+• • Criação via Thread ou Runnable.
+• Exemplo:
+• Runnable sensor = new Sensor('Temp');
+• Thread t = new Thread(sensor);
+• t.start();
+Métodos Importantes da Classe Thread
+• • start() – inicia a execução.
+• • sleep(ms) – pausa temporariamente.
+• • yield() – cede CPU para outra thread.
+• • join() – aguarda a conclusão de outra thread.
+• • setPriority(n) – ajusta prioridade.
+• O método join() é usado para sincronizar a execução entre threads.
+Ciclo de Vida das Threads
+• Estados:
+• • Nova – criada, ainda não iniciada.
+• • Executável – pronta para execução.
+• • Em execução – CPU está rodando a thread.
+• • Bloqueada – aguardando evento ou recurso.
+• • Terminada – execução finalizada.
+• Transições controladas por sleep(), yield(), wait(), notify(), join().
+Sincronização e Comunicação
+• • Problema: múltiplas threads acessando dados compartilhados.
+• • Solução: blocos synchronized para evitar race conditions.
+• • Comunicação: wait(), notify(), notifyAll().
+• • Evita inconsistências e melhora previsibilidade.
+Produtor / Consumidor e Deadlocks
+• • O produtor adiciona dados, o consumidor remove.
+• • Buffer limitado exige controle de acesso.
+• • wait() e notify() garantem alternância de execução.
+• • Deadlock ocorre quando threads esperam indefinidamente por recursos.
+• • Prevenção: controle de ordem e liberação de locks.
+Introdução a Sockets
+• • Sockets permitem comunicação ponto a ponto entre processos.
+• • Modelo Cliente-Servidor.
+• Servidor:
+• ServerSocket server = new ServerSocket(5000);
+• Socket s = server.accept();
+• Cliente:
+• Socket c = new Socket('localhost', 5000);
+• Usado em sistemas distribuídos e em conjunto com RMI.
+Sockets e RMI
+• • Ambos permitem comunicação entre processos/máquinas.
+• • Sockets: comunicação manual com fluxo de dados.
+• • RMI: comunicação orientada a objetos (métodos remotos).
+• RMI utiliza sockets internamente, mas abstrai a serialização e rede.
+• Facilita o desenvolvimento de sistemas distribuídos em Java.
+Sistemas Distribuídos e em Rede
+• • Em rede: computadores independentes trocando dados.
+• • Distribuídos: atuam como um sistema único.
+• • Comunicação e coordenação via troca de mensagens.
+• • Tolerância a falhas e sincronização de relógios.
+• • Exemplo: clusters, grids, RMI, sistemas de arquivos distribuídos.
+Exercício 1 – Threads Cooperativas
+• Implemente um sistema de monitoramento com 3 sensores (temperatura,
+umidade e pressão).
+• Cada sensor executa em uma thread e exibe leituras a cada 2 segundos.
+• A thread principal deve aguardar o término de todas usando join().
+• → Mostre o uso de Runnable e Thread.join().
+Resposta 1
+• Thread t1 = new Thread(new Sensor('Temp'));
+• Thread t2 = new Thread(new Sensor('Umid'));
+• Thread t3 = new Thread(new Sensor('Press'));
+• t1.start(); t2.start(); t3.start();
+• t1.join(); t2.join(); t3.join();
+• → join() garante que todas as threads terminem antes do programa
+encerrar.
+Exercício 2 – Controle de Estoque
+• Crie uma classe Estoque com métodos synchronized:
+• • vender() – reduz a quantidade se houver estoque.
+• • repor() – adiciona itens e notifica as threads.
+• Simule 2 threads de venda e 1 de reposição.
+• Use wait()/notifyAll() para evitar vendas com estoque vazio.
+Resposta 2
+• public synchronized void vender() {
+• while (qtd == 0) wait();
+• qtd--; notifyAll();
+• }
+• public synchronized void repor() {
+• qtd++; notifyAll();
+• }
+• → garante exclusão mútua e comunicação entre produtor e consumidor.
+Exercício 3 – Arquitetura Distribuída com
+Socket
+• Desenhe ou descreva um sistema com:
+• • Um servidor de cálculo (SocketServer)
+• • Vários clientes solicitando operações matemáticas
+• • Comunicação via sockets TCP
+• → Explique como o servidor pode atender múltiplos clientes
+simultaneamente.
+
+Resposta 3
+
+• • O servidor cria um ServerSocket e usa threads para cada conexão:
+• while(true) { Socket s = server.accept(); new Thread(new
+Worker(s)).start(); }
+• • Cada Worker trata um cliente simultaneamente.
+• • Permite escalabilidade e execução concorrente típica de sistemas
+distribuídos.
+
+Conclusão e Dicas para Avaliação
+
+• • Revise: Threads, join(), sincronização, wait/notify, sockets e RMI.
+• • Entenda os estados das threads e o ciclo de vida.
+• • Diferencie sistemas em rede e distribuídos.
+
+• → Leve em conta o raciocínio lógico e a clareza do código nas respostas.
+• Boa prova!

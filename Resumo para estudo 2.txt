@@ -1,0 +1,90 @@
+﻿Perfeito! 👇
+Aqui está um quadro de estudo resumido e didático, ótimo para revisão antes de prova sobre Threads, sincronização, wait/notify, sockets, RMI e sistemas distribuídos:
+________________
+
+
+🧩 Resumo de Threads, Sincronização e Sistemas Distribuídos em Java
+🧠 Conceito
+	💬 Explicação Simples
+	💡 Exemplo / Uso
+	Thread
+	É uma linha de execução independente dentro do programa. Permite executar várias tarefas ao mesmo tempo.
+	Ex: uma thread mostra o relógio enquanto outra salva dados.
+	Método start()
+	Inicia a execução da thread (chama automaticamente o método run()).
+	t1.start();
+	Método join()
+	Faz a thread atual esperar outra thread terminar antes de continuar.
+	Esperar o cálculo terminar antes de exibir o resultado.
+	synchronized
+	Garante que apenas uma thread por vez execute um trecho de código. Evita conflito em variáveis compartilhadas.
+	public synchronized void sacar() { ... }
+	wait() / notify()
+	Permitem que threads se comuniquem: uma espera (wait) e outra avisa quando pode continuar (notify ou notifyAll).
+	Controle de estoque: vendedor espera reposição.
+	Estados da Thread
+	- New → criada - Runnable → pronta - Running → executando - Waiting/Blocked → parada esperando algo - Terminated → terminou
+	Saber quando a thread está ativa, esperando ou finalizada.
+	Socket
+	Permite comunicação entre dois programas pela rede (cliente-servidor).
+	Ex: chat, servidor web, jogo online.
+	Servidor Socket
+	Fica “ouvindo” conexões em uma porta.
+	ServerSocket servidor = new ServerSocket(5000);
+	Cliente Socket
+	Conecta-se ao servidor.
+	Socket cliente = new Socket("localhost", 5000);
+	RMI (Remote Method Invocation)
+	Permite chamar métodos de objetos que estão em outra máquina como se fossem locais.
+	Ex: um sistema distribuído que compartilha objetos pela rede.
+	Sistema em Rede
+	Computadores conectados trocando dados (cada um tem sua função).
+	Ex: Cliente e servidor usando sockets.
+	Sistema Distribuído
+	Computadores trabalham juntos como se fossem um só sistema.
+	Ex: RMI, microserviços, nuvem, banco distribuído.
+	________________
+
+
+🧩 Resumo Visual – Ciclo de Vida de uma Thread
+     ┌──────────┐
+     │  New     │   → criada (ainda não iniciou)
+     └────┬─────┘
+          │ start()
+          ↓
+     ┌──────────┐
+     │ Runnable │   → pronta para rodar
+     └────┬─────┘
+          │ CPU executa
+          ↓
+     ┌──────────┐
+     │ Running  │   → executando o método run()
+     └────┬─────┘
+          │ wait(), sleep(), bloqueio
+          ↓
+     ┌──────────┐
+     │ Waiting  │   → aguardando algo
+     └────┬─────┘
+          │ notificada
+          ↓
+     ┌──────────┐
+     │Terminated│   → terminou a execução
+     └──────────┘
+
+
+________________
+
+
+🧭 Dicas rápidas para prova
+✅ Use synchronized para proteger variáveis compartilhadas.
+✅ Use wait() e notifyAll() sempre dentro de métodos sincronizados.
+✅ Sockets = comunicação direta entre programas.
+✅ RMI = chamada remota de métodos (Java distribuído).
+✅ join() = espera a thread terminar.
+✅ Ciclo de vida = saber quando a thread está ativa, esperando ou terminou.
+✅ Rede x Distribuído:
+* Rede = troca de dados.
+
+* Distribuído = cooperação entre processos.
+
+________________
