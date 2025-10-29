@@ -16,7 +16,7 @@ public class CalcClient {
             System.out.println(in.readLine()); // Mensagem de boas-vindas
 
             while (true) {
-                System.out.print("Digite operação (ou SAIR): ");
+                System.out.print("Digite operaçaado (ou SAIR): ");
                 String comando = scanner.nextLine();
 
                 if (comando.equalsIgnoreCase("SAIR")) break;

@@ -1,0 +1,60 @@
+Claro! 😊 Aqui vai um **resumo didático e direto** para você estudar antes da prova:
+
+---
+
+# 🧩 **Resumo: Sistemas em Rede x Sistemas Distribuídos**
+
+## 🌐 **Sistemas em Rede**
+
+👉 **Definição:**
+Conjunto de computadores conectados que **compartilham recursos** (como arquivos, impressoras e internet).
+
+### ✳️ **Características principais:**
+
+* Cada computador é **independente** (pode funcionar sozinho).
+* O foco é **comunicação e compartilhamento de recursos**.
+* Usa **protocolos de rede** (como TCP/IP).
+* O usuário **sabe onde o recurso está**.
+
+### 💡 **Exemplo:**
+
+Vários computadores de um escritório acessando um **servidor de arquivos** ou uma **impressora em rede**.
+
+---
+
+## ☁️ **Sistemas Distribuídos**
+
+👉 **Definição:**
+Conjunto de computadores conectados que **trabalham juntos como se fossem um só sistema**.
+
+### ✳️ **Características principais:**
+
+* Os recursos são **distribuídos fisicamente**, mas funcionam de forma **integrada**.
+* O foco é **cooperação e execução conjunta de tarefas**.
+* O usuário **não precisa saber onde o recurso está** (transparência).
+* Envolve **sincronização, concorrência e tolerância a falhas**.
+
+### 💡 **Exemplo:**
+
+Serviços como **Google**, **Netflix**, **bancos de dados distribuídos** ou **clusters de servidores** que dividem o processamento de tarefas.
+
+---
+
+## ⚖️ **Comparativo Rápido**
+
+| 🔍 Aspecto        | 💻 Sistema em Rede               | ☁️ Sistema Distribuído              |
+| ----------------- | -------------------------------- | ----------------------------------- |
+| **Objetivo**      | Compartilhar recursos            | Trabalhar em conjunto em uma tarefa |
+| **Autonomia**     | Cada nó funciona sozinho         | Nós dependem uns dos outros         |
+| **Transparência** | Usuário sabe onde está o recurso | Sistema esconde localização         |
+| **Foco**          | Comunicação                      | Cooperação e coordenação            |
+| **Exemplo**       | Impressora compartilhada         | Cluster de servidores               |
+
+---
+
+## 🧠 **Dica para lembrar:**
+
+* **Rede** → Compartilha.
+* **Distribuído** → Coopera.
+
+---
